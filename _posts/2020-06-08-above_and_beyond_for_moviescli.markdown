@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Above and Beyond for MoviesCLI"
-date:       2020-06-08 05:18:30 +0000
+date:       2020-06-08 01:18:31 -0400
 permalink:  above_and_beyond_for_moviescli
 ---
 
