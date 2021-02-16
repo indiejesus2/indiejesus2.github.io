@@ -1,10 +1,11 @@
 ---
 layout: post
 title:      "Grand Finale: Cookies!"
-date:       2021-02-15 21:52:20 +0000
+date:       2021-02-15 16:52:20 -0500
 permalink:  grand_finale_cookies
 ---
 
+I made it. Final stretch till I am set free into the wild. I hope I have all I need to survive. For my magnum opus, I decided to build a calorie counting app to keep track of how many calories consumes in a day. I've used some in the past which have worked out fine, but why do I need it when I can just make my own. And my whole goal when I count calories is to see how much I can indulge myself on cookies at the end of the day, hence the name of the app and title of this post.
 
 One of the first roadblocks I encountered was handling the data after making a fetch request for users. Users have many records that include the date of the record and how many calories were imputed for the day. Then each record has an associated day of items and each item’s calories. 
 
