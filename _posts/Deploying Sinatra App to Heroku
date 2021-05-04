@@ -1,0 +1,17 @@
+After completing my bootcamp at Flatiron School, it was time to transition into career search. Job hunting can almost seem like, well like a second job. Not only are you sending out resumes and composing cover letters to potential employers, it is also important that recruiters can view what you have been working on while learning to code. Some great suggestions are including links to videos explaining projects you’ve worked on, or uploading a project to a host platform that will allow employers to have a first hand look at your project.
+
+I chose to upload my Sinatra Project, Shelf, onto Heroku, a cloud application platform that offers affordable rates to host websites. The reason I chose my Sinatra project over my more advanced projects is that the UI was simple but clean and ready to deploy. What I came to realize was that Heroku was not compatible with the query database the project was developed with, SQLite. Not a big deal, I just had to convert the database to PostGreSQL, the preferred database for Heroku.
+
+At first glance, this seemed like a very simple task. I had to simply remove SQLite from my Gemfile and replace it with the PostgreSQL gem. Then I ran Bundle Install in the terminal to update the Gemfile.lock.
+
+After updating the gems, it is also necessary to add some files to the application so that it can run properly on Heroku. This included adding a Database.yml file that defined which query adapter was used to query the database, as well as defining the database. 
+
+Heroku also specified adding a Procfile to the app’s root directory, in order to specify “the commands that are executed by the app on startup.”
+
+It is also important to change the configuration detailed in the environment file required in the config file that is responsible for getting the app running. Originally, the environment was established to be corresponding between ActiveRecord::Base and the SQLite3 database, which had to be removed and replaced with postgres instead.
+
+With these simple tasks out of the way, it was time to deploy my app on Heroku. Except that’s when the errors started popping up. It seemed that even though SQLite3 had been removed from my Gemfile, it was still showing up in my Gemfile.lock. Heroku was not happy about this and rightfully refused to allow my app to sync up.
+
+Upon further review of my project and countless blog posts and messageboards, the simple fix came down to my use of the gem Sinatra-Flash. This handy gem made it possible for the application to flash messages to users that there was an error processing a given input, whether it was an unknown user or incorrect password. The problem with using this gem and trying to deploy it to Heroku was that it depended on SQLite3, which was being installed every time I tried reinstalling the gemfiles. 
+
+Once the gem was removed, along with every instance of a flash message written in the code, the application finally uploaded to Heroku. The simple task became a long frustrating task, but in the end I was proud to have my application on the web to share with employers, and my parents of course. With a sigh of relief, I soon realized that there was more to learn and code so my Shelf application was running as I originally envisioned. Never a dull moment in the software development world. Until next time...
